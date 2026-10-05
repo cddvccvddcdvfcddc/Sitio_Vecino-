@@ -1,0 +1,18 @@
+{
+  "id": "23f7a467-db67-449d-81b0-676b9f38b50e",
+  "createdAt": "2026-10-05T17:19:10.307Z",
+  "status": "pendiente",
+  "privacyVersion": "2026-10-05",
+  "name": "PRUEBA · Sitio Vecino",
+  "business": "Negocio ficticio de prueba",
+  "phone": "5512345678",
+  "email": "prueba@example.test",
+  "industry": "Barbería de demostración",
+  "hasWebsite": "no",
+  "projectType": "citas",
+  "budget": "",
+  "description": "Esta es una prueba del formulario. Quiero un sitio con sistema de citas y contacto por WhatsApp.",
+  "features": ["WhatsApp", "Sistema de citas"],
+  "consent": true,
+  "fingerprint": "5d5c047bf73dd3f8c03e4cb227677301ab12531509978db63b5275d18f0a3452"
+}

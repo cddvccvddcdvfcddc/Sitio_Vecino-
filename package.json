@@ -1,0 +1,15 @@
+{
+  "name": "sitio-vecino",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sitio de cotizaciones personalizadas de Sitio Vecino",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/server.test.mjs",
+    "solicitudes": "node scripts/export-requests.mjs"
+  }
+}

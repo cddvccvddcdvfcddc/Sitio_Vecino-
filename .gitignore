@@ -1,0 +1,6 @@
+data/*
+!data/.gitkeep
+exports/
+.env
+qa/*.png
+node_modules/

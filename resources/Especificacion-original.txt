@@ -1,0 +1,347 @@
+Quiero que desarrolles una página web completa, moderna, responsive y profesional para mi marca llamada **Sitio Vecino**.
+
+El objetivo principal de la página es captar clientes que necesiten una página web para su negocio. No quiero manejar paquetes fijos ni precios establecidos. La idea es que cada cliente explique lo que necesita y después recibir una cotización personalizada.
+
+## Identidad visual
+
+Usa como base los colores del logo de **Sitio Vecino**. Combínalos con negro, rojo y tonos neutros de forma elegante y moderna.
+
+La página debe verse:
+
+- Profesional
+- Moderna
+- Llamativa
+- Con buena jerarquía visual
+- Limpia
+- Fácil de navegar
+- Pensada principalmente para usuarios desde celular
+
+No abuses del rojo ni de colores demasiado fuertes. El negro puede utilizarse en fondos, encabezados o secciones destacadas. El rojo puede funcionar como color de acento para botones, iconos, hover y llamadas a la acción.
+
+Si te proporciono el logo, analízalo y toma sus colores como referencia principal.
+
+Quiero animaciones discretas y modernas, efectos hover, transiciones suaves y buena experiencia visual, pero sin hacer la página pesada.
+
+## Navegación
+
+Crear un menú con:
+
+- Inicio
+- Servicios
+- Cómo trabajamos
+- Portafolio
+- ¿Por qué Sitio Vecino?
+- Cotización
+- Preguntas frecuentes
+- Contacto
+
+Agregar un botón destacado en el menú:
+
+**Cotizar mi página**
+
+También agregar un botón flotante de WhatsApp Business visible durante la navegación.
+
+## 1. Inicio
+
+Crear una sección Hero llamativa.
+
+Título principal:
+
+**Haz crecer tu negocio con una página web hecha a tu medida.**
+
+Texto secundario:
+
+**Creamos sitios web modernos, rápidos y pensados para ayudarte a mostrar tu negocio, conseguir clientes y facilitar el contacto.**
+
+Agregar dos botones:
+
+**Cotizar mi sitio**
+
+**Hablar por WhatsApp**
+
+El botón de cotización debe llevar al formulario.
+
+El botón de WhatsApp debe abrir una conversación directamente con mi WhatsApp Business.
+
+Crear una composición visual moderna relacionada con desarrollo web, negocios locales y presencia digital.
+
+## 2. Servicios
+
+Título:
+
+**¿Qué podemos crear para tu negocio?**
+
+Crear tarjetas visuales para:
+
+- Página web informativa
+- Sitio web para negocio local
+- Página con formulario de cotización
+- Sistema de citas o reservaciones
+- Catálogo de productos o servicios
+- Integración con WhatsApp Business
+- Portafolio profesional
+- Rediseño de páginas existentes
+- Desarrollo personalizado
+
+Cada servicio debe tener:
+
+- Icono
+- Título
+- Breve descripción
+- Botón “Me interesa”
+
+Cuando el usuario pulse “Me interesa”, llevarlo al formulario y, si es posible, seleccionar automáticamente el servicio.
+
+## 3. Cómo trabajamos
+
+Crear una sección visual de cuatro pasos:
+
+### 1. Cuéntanos tu idea
+
+El cliente explica qué negocio tiene y qué necesita.
+
+### 2. Recibes una propuesta
+
+Analizamos su solicitud y enviamos una cotización personalizada.
+
+### 3. Creamos tu sitio
+
+Diseñamos y desarrollamos la página según sus necesidades.
+
+### 4. Publicamos y entregamos
+
+Revisamos los detalles finales y dejamos el sitio listo para utilizarse.
+
+Debe verse como una línea de proceso o timeline moderna.
+
+## 4. Portafolio
+
+Crear una sección de proyectos.
+
+Debe permitir mostrar proyectos reales y también proyectos demo.
+
+Cada tarjeta debe mostrar:
+
+- Imagen o captura del sitio
+- Nombre del negocio
+- Tipo de proyecto
+- Tecnologías o funciones principales
+- Botón “Ver proyecto”
+
+Preparar ejemplos iniciales de proyectos demo como:
+
+- Barbería
+- Restaurante
+- Gimnasio
+- Consultorio
+- Tienda local
+
+La estructura debe permitir reemplazar fácilmente estos demos por proyectos reales posteriormente.
+
+## 5. ¿Por qué Sitio Vecino?
+
+Título:
+
+**Soluciones web pensadas para negocios reales.**
+
+Mostrar beneficios como:
+
+- Diseño adaptable a celular, tablet y computadora
+- Atención directa
+- Soluciones personalizadas
+- Integración con WhatsApp
+- Sitios rápidos
+- Navegación sencilla
+- Acompañamiento durante el proyecto
+- Posibilidad de agregar nuevas funciones en el futuro
+
+Esta sección debe transmitir cercanía y confianza.
+
+Sitio Vecino debe sentirse como un servicio accesible para negocios locales, no como una agencia corporativa distante.
+
+## 6. Formulario de cotización
+
+Esta es una de las secciones más importantes.
+
+Título:
+
+**Cuéntanos qué necesita tu negocio**
+
+Crear un formulario moderno con los siguientes campos:
+
+- Nombre
+- Nombre del negocio
+- Número de WhatsApp
+- Correo electrónico
+- Giro del negocio
+- ¿Ya cuenta con página web?
+- Tipo de proyecto
+- Presupuesto aproximado
+- Descripción del proyecto
+
+Agregar una selección múltiple para las funciones que necesita:
+
+- WhatsApp
+- Sistema de citas
+- Reservaciones
+- Catálogo
+- Pagos
+- Ubicación o Google Maps
+- Formulario de contacto
+- Redes sociales
+- Galería
+- Inicio de sesión
+- Panel administrativo
+- Base de datos
+- Otra función
+
+Agregar validaciones correctamente.
+
+El formulario debe ser fácil de usar desde celular.
+
+Botón principal:
+
+**Solicitar cotización**
+
+## 7. Qué sucede después de enviar el formulario
+
+Después de enviar correctamente la solicitud, mostrar una pantalla, modal o sección con:
+
+**¡Solicitud recibida!**
+
+Texto:
+
+**Gracias por contactar a Sitio Vecino. Revisaremos tu proyecto y nos comunicaremos contigo para conocer más detalles y preparar una propuesta personalizada.**
+
+Agregar dos botones:
+
+**Continuar por WhatsApp**
+
+**Volver al inicio**
+
+El botón de WhatsApp debe generar automáticamente un mensaje utilizando algunos de los datos que el usuario haya escrito.
+
+Por ejemplo:
+
+“Hola, contacté a Sitio Vecino desde su página web. Mi negocio es una barbería y estoy interesado en una página con sistema de citas, galería y WhatsApp.”
+
+El mensaje debe adaptarse automáticamente a las opciones seleccionadas por el usuario.
+
+## 8. Seguimiento
+
+Dejar preparada la estructura para que, cuando un cliente solicite una cotización, pueda recibir posteriormente un mensaje como:
+
+“Hola, soy Mario de Sitio Vecino. Recibí tu solicitud para una página web. Me gustaría hacerte unas preguntas rápidas para prepararte una propuesta de acuerdo con lo que necesita tu negocio.”
+
+Si es posible, implementar una forma sencilla de almacenar las solicitudes o dejar preparado el proyecto para conectar posteriormente una base de datos o un servicio de formularios.
+
+No agregar servicios externos de pago sin necesidad.
+
+## 9. Preguntas frecuentes
+
+Crear un acordeón de preguntas frecuentes.
+
+Incluir:
+
+- ¿Cuánto cuesta una página web?
+- ¿Cuánto tiempo tarda en desarrollarse?
+- ¿Necesito tener dominio?
+- ¿Incluye hosting?
+- ¿Puedo modificar la página después?
+- ¿Funciona correctamente en celular?
+- ¿Se puede conectar con WhatsApp?
+- ¿Puedo agregar nuevas funciones más adelante?
+
+Para la pregunta del precio utilizar una respuesta similar a:
+
+**Cada proyecto tiene necesidades diferentes, por eso realizamos cotizaciones personalizadas de acuerdo con las funciones y características que necesite tu negocio.**
+
+## 10. Contacto
+
+Crear una sección final con:
+
+Título:
+
+**¿Tienes una idea? Hablemos.**
+
+Agregar opciones para:
+
+- WhatsApp Business
+- Correo electrónico
+- Facebook
+- Instagram
+
+Agregar nuevamente un botón grande:
+
+**Quiero cotizar mi página**
+
+## Footer
+
+Agregar:
+
+- Logo de Sitio Vecino
+- Enlaces rápidos
+- Redes sociales
+- Información de contacto
+- Copyright dinámico con el año actual
+- Aviso de privacidad
+- Términos básicos si son necesarios
+
+## Diseño responsive
+
+Debe funcionar perfectamente en:
+
+- Celulares
+- Tablets
+- Laptops
+- Pantallas grandes
+
+Priorizar especialmente la experiencia móvil.
+
+## SEO y rendimiento
+
+Implementar:
+
+- Etiquetas title y description
+- Open Graph
+- Estructura semántica HTML
+- Buen contraste
+- Accesibilidad básica
+- Imágenes optimizadas
+- Lazy loading donde corresponda
+- Código limpio
+- Buen rendimiento
+- Buenas prácticas SEO
+
+## Desarrollo
+
+Organiza el proyecto de forma profesional y fácil de mantener.
+
+Puedes elegir el stack más apropiado para una página de este tipo, evitando complicar innecesariamente el proyecto.
+
+Debe quedar preparado para:
+
+- Cambiar fácilmente los textos
+- Cambiar imágenes
+- Agregar proyectos al portafolio
+- Cambiar el número de WhatsApp
+- Añadir enlaces de redes sociales
+- Conectar posteriormente una base de datos o backend
+
+No quiero solamente un diseño visual o prototipo.
+
+Quiero el **sitio funcional completo**, con todos los archivos necesarios.
+
+Revisa que:
+
+- No existan errores
+- Los botones funcionen
+- El menú funcione
+- El formulario tenga validaciones
+- Los enlaces internos funcionen
+- WhatsApp genere correctamente el mensaje
+- Se vea correctamente en dispositivos móviles
+
+Antes de terminar, prueba el proyecto y corrige cualquier error que encuentres.
+
+No agregues precios ni paquetes comerciales. Sitio Vecino trabaja mediante **cotizaciones personalizadas según las necesidades de cada negocio**.

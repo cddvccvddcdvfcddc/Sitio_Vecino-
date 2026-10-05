@@ -1,0 +1,202 @@
+// Edita aquí los canales públicos. Usa cadenas vacías para ocultar los no disponibles.
+export const site = {
+  name: 'Sitio Vecino',
+  owner: 'Mario',
+  whatsapp: '527205080235', // Pendiente de verificar que la cuenta esté activa.
+  facebook: 'https://www.facebook.com/sitiovecino',
+  email: '',
+  instagram: '',
+  publicUrl: '',
+};
+export const services = [
+  {
+    id: 'informativa',
+    icon: 'window',
+    title: 'Página web informativa',
+    text: 'Tu negocio, tus servicios y lo que te hace diferente, en un solo lugar.',
+  },
+  {
+    id: 'local',
+    icon: 'shop',
+    title: 'Sitio para negocio local',
+    text: 'Haz que te encuentren, conozcan tus horarios y sepan cómo llegar.',
+  },
+  {
+    id: 'cotizacion',
+    icon: 'file',
+    title: 'Formulario de cotización',
+    text: 'Recibe solicitudes con la información que necesitas para dar una propuesta.',
+  },
+  {
+    id: 'citas',
+    icon: 'calendar',
+    title: 'Citas o reservaciones',
+    text: 'Facilita que tus clientes soliciten una cita. El alcance se define contigo.',
+  },
+  {
+    id: 'catalogo',
+    icon: 'grid',
+    title: 'Catálogo de productos',
+    text: 'Presenta tus productos o servicios con fotos, detalles y contacto directo.',
+  },
+  {
+    id: 'whatsapp',
+    icon: 'chat',
+    title: 'Integración con WhatsApp',
+    text: 'Acerca cada consulta a una conversación con mensajes listos para enviar.',
+  },
+  {
+    id: 'portafolio',
+    icon: 'briefcase',
+    title: 'Portafolio profesional',
+    text: 'Dale espacio a tu trabajo y muestra tus proyectos con tu propio estilo.',
+  },
+  {
+    id: 'rediseno',
+    icon: 'spark',
+    title: 'Rediseño de páginas',
+    text: 'Renueva tu sitio para que sea más claro, actual y cómodo desde el celular.',
+  },
+  {
+    id: 'personalizado',
+    icon: 'code',
+    title: 'Desarrollo personalizado',
+    text: '¿Tienes algo más en mente? Revisemos las funciones que necesita tu idea.',
+  },
+];
+export const features = [
+  'WhatsApp',
+  'Sistema de citas',
+  'Reservaciones',
+  'Catálogo',
+  'Pagos',
+  'Ubicación o Google Maps',
+  'Formulario de contacto',
+  'Redes sociales',
+  'Galería',
+  'Inicio de sesión',
+  'Panel administrativo',
+  'Base de datos',
+  'Otra función',
+];
+export const projects = [
+  {
+    id: 'restaurante',
+    name: 'Mesa de Barrio',
+    category: 'Restaurante',
+    title: 'El sabor de estar en casa.',
+    subtitle: 'Cocina de temporada, sobremesas largas y un lugar para volver.',
+    tags: ['Menú digital', 'Reservaciones'],
+    color: '#e9ecd9',
+    ink: '#273c29',
+    kicker: 'COCINA DE BARRIO',
+    action: 'Explorar el menú',
+    items: [
+      ['Ensalada de temporada', 'Vegetales frescos, cítricos y semillas.'],
+      ['Pasta de la casa', 'Salsa de jitomate rostizado y albahaca.'],
+      ['Pan y café', 'Un buen final para una larga sobremesa.'],
+    ],
+  },
+  {
+    id: 'barberia',
+    name: 'Distrito Barber',
+    category: 'Barbería',
+    title: 'Tu estilo. Sin rodeos.',
+    subtitle: 'Cortes con carácter y tiempo para cuidar los detalles.',
+    tags: ['Servicios', 'Solicitud de cita'],
+    color: '#202322',
+    ink: '#f3e5c4',
+    kicker: 'BARBERÍA & ESTILO',
+    action: 'Elegir mi servicio',
+    items: [
+      ['Corte clásico', 'Acabado limpio y asesoría de estilo.'],
+      ['Barba y perfilado', 'Detalle, precisión y cuidado.'],
+      ['Corte y barba', 'Una experiencia completa.'],
+    ],
+  },
+  {
+    id: 'gimnasio',
+    name: 'Pulso Studio',
+    category: 'Gimnasio',
+    title: 'Encuentra tu ritmo.',
+    subtitle: 'Un espacio para moverte, avanzar y disfrutar el proceso.',
+    tags: ['Clases', 'Horarios'],
+    color: '#dbff79',
+    ink: '#17261c',
+    kicker: 'MOVIMIENTO QUE CONECTA',
+    action: 'Conocer las clases',
+    items: [
+      ['Fuerza', 'Lunes y miércoles · 7:00 y 18:00'],
+      ['Movilidad', 'Martes y jueves · 8:00 y 19:00'],
+      ['Entrenamiento funcional', 'Viernes · 7:00 y 18:00'],
+    ],
+  },
+  {
+    id: 'consultorio',
+    name: 'Clara · Consultorio',
+    category: 'Consultorio',
+    title: 'Tiempo para cuidarte.',
+    subtitle: 'Información clara y una forma sencilla de solicitar una consulta.',
+    tags: ['Información', 'Contacto'],
+    color: '#dbeef3',
+    ink: '#143f54',
+    kicker: 'ATENCIÓN CON CERCANÍA',
+    action: 'Conocer la atención',
+    items: [
+      ['Consulta general', 'Un espacio para conversar sobre tu salud.'],
+      ['Seguimiento', 'Organiza tus próximas visitas.'],
+      ['Primera visita', 'Conoce cómo solicitar información.'],
+    ],
+  },
+  {
+    id: 'tienda',
+    name: 'Objeto Cotidiano',
+    category: 'Tienda local',
+    title: 'Pequeñas cosas. Grandes espacios.',
+    subtitle: 'Objetos elegidos para acompañar lo que pasa todos los días.',
+    tags: ['Catálogo', 'Consulta de productos'],
+    color: '#f3e4d5',
+    ink: '#713c27',
+    kicker: 'COSAS PARA VIVIRLAS',
+    action: 'Ver la colección',
+    items: [
+      ['Colección hogar', 'Textiles y objetos para tus espacios.'],
+      ['Mesa y cocina', 'Detalles que acompañan cada día.'],
+      ['Regalos', 'Ideas para compartir algo especial.'],
+    ],
+  },
+];
+export const faqs = [
+  [
+    '¿Cuánto cuesta una página web?',
+    'Cada proyecto tiene necesidades diferentes. Por eso preparo una cotización personalizada según las funciones, el contenido y las características que necesite tu negocio.',
+  ],
+  [
+    '¿Cuánto tiempo tarda en desarrollarse?',
+    'Depende del tamaño del sitio, las funciones y el contenido disponible. Después de conocer tu idea, te comparto un plazo en la propuesta antes de empezar.',
+  ],
+  [
+    '¿Necesito tener dominio?',
+    'Para publicar con una dirección propia necesitas un dominio. Si ya tienes uno, podemos utilizarlo; si no, te oriento para elegirlo. Su contratación se acuerda por separado.',
+  ],
+  [
+    '¿Incluye hosting?',
+    'El alojamiento se define en la cotización. Te explico las opciones, los costos que correspondan y las renovaciones antes de contratar cualquier servicio.',
+  ],
+  [
+    '¿Puedo modificar la página después?',
+    'Sí. Podemos acordar cambios posteriores o incluir una forma de administrar el contenido, según lo que necesites y el alcance del proyecto.',
+  ],
+  [
+    '¿Funciona correctamente en celular?',
+    'Sí. El diseño se adapta a celulares, tablets y computadoras, y reviso la navegación y los formularios en distintos tamaños de pantalla.',
+  ],
+  [
+    '¿Se puede conectar con WhatsApp?',
+    'Sí. Puedo incluir botones que abran una conversación y preparen mensajes con el producto o servicio que interesa al visitante. Necesitas una cuenta de WhatsApp activa.',
+  ],
+  [
+    '¿Puedo agregar nuevas funciones más adelante?',
+    'Sí. Revisamos la compatibilidad con tu sitio y preparo una propuesta para ampliar sus funciones cuando tu negocio lo necesite.',
+  ],
+];
