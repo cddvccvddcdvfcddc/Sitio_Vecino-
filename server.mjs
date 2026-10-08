@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createHash, randomUUID } from 'node:crypto';
 import { validateQuote } from './public/validation.js';
+import { mailNotifier, loadEnv } from './mailer.mjs';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const defaultPublicRoot = path.join(root, 'public');
 const mime = {
@@ -59,7 +60,7 @@ export async function saveQuote(directory, id, data) {
     id,
     createdAt: new Date().toISOString(),
     status: 'pendiente',
-    privacyVersion: '2026-10-05',
+    privacyVersion: '2026-10-07',
     ...data,
     fingerprint,
   };
@@ -79,7 +80,7 @@ export async function saveQuote(directory, id, data) {
         );
       return { id, duplicate: true };
     }
-    return { id, duplicate: false };
+    return { id, duplicate: false, record };
   } finally {
     await unlink(temp).catch(() => {});
   }
@@ -88,7 +89,8 @@ export function createServer(options = {}) {
   const publicRoot = options.publicRoot || defaultPublicRoot,
     dataDir = options.dataDir || process.env.DATA_DIR || path.join(root, 'data', 'solicitudes'),
     limits = new Map(),
-    maxRequests = options.maxRequests ?? 10;
+    maxRequests = options.maxRequests ?? 10,
+    notify = options.notify === undefined ? mailNotifier() : options.notify;
   return http.createServer(async (req, res) => {
     try {
       const url = new URL(req.url, 'http://localhost');
@@ -144,6 +146,13 @@ export function createServer(options = {}) {
               'La referencia del formulario no es válida. Recarga la página e intenta otra vez.',
           });
         const result = await saveQuote(dataDir, input.requestId.toLowerCase(), data);
+        // La solicitud ya está guardada: un fallo del aviso no debe afectar la confirmación.
+        if (notify && !result.duplicate)
+          Promise.resolve()
+            .then(() => notify(result.record))
+            .catch((error) =>
+              console.error('No se pudo enviar el aviso por correo:', error.message),
+            );
         return json(res, result.duplicate ? 200 : 201, { ok: true, id: result.id });
       }
       if (url.pathname.startsWith('/api/'))
@@ -205,6 +214,7 @@ export function createServer(options = {}) {
   });
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+  loadEnv(root);
   const port = Number(process.env.PORT || 4173),
     host = process.env.HOST || '127.0.0.1',
     server = createServer();
@@ -220,7 +230,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
   });
   server.listen(port, host, () =>
     console.log(
-      `Sitio Vecino: http://${host}:${server.address().port}\nSolicitudes: ${process.env.DATA_DIR || path.join(root, 'data', 'solicitudes')}`,
+      `Sitio Vecino: http://${host}:${server.address().port}\nSolicitudes: ${process.env.DATA_DIR || path.join(root, 'data', 'solicitudes')}
+Avisos por correo: ${mailNotifier() ? 'activados' : 'sin configurar (consulta LEEME.md)'}`,
     ),
   );
 }

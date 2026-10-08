@@ -1,1 +1,8 @@
-/* Fuente del sistema: sin peticiones a proveedores externos ni dependencia de red. */
+/* Manrope (SIL Open Font License), alojada en el sitio: sin peticiones a proveedores externos. */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin.woff2') format('woff2');
+}

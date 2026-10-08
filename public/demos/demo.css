@@ -10,8 +10,8 @@
   gap: 20px;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 4%;
-  font-size: 0.75rem;
+  padding: 12px 4%;
+  font-size: 0.8125rem;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -20,12 +20,6 @@
 .demo-notice a {
   text-decoration: underline;
   text-underline-offset: 4px;
-}
-
-.demo-notice span {
-  font-size: 0.64rem;
-  letter-spacing: 0.09em;
-  color: #c3d9e1;
 }
 
 .demo-wrap {
@@ -120,7 +114,7 @@
 }
 
 .demo-feature-content > span {
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   letter-spacing: 0.15em;
 }
 
@@ -134,13 +128,6 @@
 .demo-feature-content p {
   font-size: 0.84rem !important;
   margin: 15px 0 !important;
-}
-
-.demo-caption {
-  font-size: 0.7rem;
-  padding: 14px 20px;
-  border-top: 1px solid currentColor;
-  opacity: 0.8;
 }
 
 .demo-section {
@@ -297,22 +284,6 @@
     width: calc(100% - 40px);
   }
 
-  .demo-notice {
-    flex-wrap: wrap;
-    font-size: 0.7rem;
-    gap: 9px;
-  }
-
-  .demo-notice span {
-    order: 3;
-    width: 100%;
-    font-size: 0.57rem;
-  }
-
-  .demo-notice > a:last-child {
-    margin-left: auto;
-  }
-
   .demo-hero {
     grid-template-columns: 1fr;
     gap: 35px;
@@ -404,10 +375,6 @@
 
   .demo-notice {
     padding: 12px 18px;
-  }
-
-  .demo-hero .demo-kicker {
-    font-size: 0.65rem;
   }
 
   .demo-hero p:not(.demo-kicker) {

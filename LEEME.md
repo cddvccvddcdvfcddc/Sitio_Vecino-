@@ -14,9 +14,30 @@ Si informa que el puerto está ocupado, la vista previa podría estar abierta ya
 
 Haz doble clic en **VER SOLICITUDES.cmd**. Genera y abre `exports/solicitudes.html`, una consulta privada con los datos recibidos y un botón que prepara el seguimiento por WhatsApp. El mensaje no se envía automáticamente. También genera `exports/solicitudes.csv`, que puedes abrir en Excel.
 
-Vuelve a ejecutar el archivo cada vez que quieras actualizar el reporte. Las solicitudes originales se guardan en `data/solicitudes/`, una por archivo. No hay notificaciones automáticas de correo o WhatsApp. Revisa esta carpeta o el reporte para dar seguimiento.
+Vuelve a ejecutar el archivo cada vez que quieras actualizar el reporte. Las solicitudes originales se guardan en `data/solicitudes/`, una por archivo. Si configuras el aviso por correo (siguiente sección), cada solicitud nueva también llega a tu Gmail.
 
 El formulario confirma recepción después del guardado, valida en el navegador y en el servidor, conserva lo escrito si falla la conexión y evita duplicados al reintentar el mismo envío. Los demos no crean reservas reales ni guardan sus datos.
+
+## Recibir cada solicitud por correo
+
+1. En tu cuenta de Google activa la verificación en dos pasos y crea una contraseña de aplicación en https://myaccount.google.com/apppasswords.
+2. Copia `.env.example` como `.env` y completa `SMTP_USER` (tu Gmail) y `SMTP_PASS` (la contraseña de aplicación). El archivo `.env` es privado y git lo ignora.
+3. Haz doble clic en **PROBAR CORREO.cmd**. Debe llegarte un correo de prueba.
+4. Reinicia el sitio. La ventana del servidor indicará "Avisos por correo: activados".
+
+La solicitud siempre se guarda primero en `data/solicitudes/`; si el correo falla, el error aparece en la ventana del servidor y la solicitud no se pierde.
+
+El formulario guarda un borrador en el navegador del visitante mientras escribe, y lo borra al enviar o después de 7 días.
+
+## Publicación en Vercel
+
+El sitio publicado usa `public/` como páginas y `api/quotes.js` como receptor del formulario. Vercel no tiene disco persistente, así que allí cada solicitud llega únicamente por correo: si el correo no se puede enviar, el visitante ve un error y puede continuar por WhatsApp. `VER SOLICITUDES.cmd` solo muestra lo recibido con el servidor local.
+
+1. En Vercel, abre el proyecto y entra a **Settings > Environment Variables**. Agrega `SMTP_USER` y `SMTP_PASS` con los mismos valores de tu `.env` (opcional: `NOTIFY_TO`).
+2. Sube los cambios con `git add .`, `git commit -m "mensaje"` y `git push`. Vercel publica solo en uno o dos minutos.
+3. Si cambias las variables después, vuelve a publicar desde **Deployments > Redeploy** para que se apliquen.
+
+`vercel.json` aplica los encabezados de seguridad. Los errores del formulario aparecen en la pestaña **Logs** del proyecto.
 
 ## Cambiar contenido
 
@@ -28,6 +49,8 @@ El formulario confirma recepción después del guardado, valida en el navegador 
 - `public/privacidad.html`: aviso de privacidad, que debe completarse con los datos del responsable antes de publicar.
 - `resources/`: originales de las imágenes y especificación del proyecto.
 - `server.mjs`: servidor y recepción de solicitudes. Solo sirve el contenido de `public/`.
+- `mailer.mjs`: aviso por correo de cada solicitud.
+- `api/quotes.js` y `vercel.json`: recepción del formulario y encabezados en Vercel.
 - `scripts/export-requests.mjs`: consulta privada y exportación a Excel.
 - `tests/`: pruebas automatizadas; `qa/`: comprobaciones y datos ficticios de prueba.
 

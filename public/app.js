@@ -1,6 +1,18 @@
 import { site, services, features, projects, faqs } from './config.js';
 import { validateQuote, quoteMessage } from './validation.js';
 const $ = (s) => document.querySelector(s);
+// crypto.randomUUID solo existe en HTTPS o localhost; getRandomValues funciona siempre.
+const newId = () =>
+  crypto.randomUUID?.() ??
+  '10000000-1000-4000-8000-100000000000'.replace(/[018]/g, (c) =>
+    (+c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (+c / 4)))).toString(16),
+  );
+const timeoutSignal = (ms) => {
+  if (AbortSignal.timeout) return AbortSignal.timeout(ms);
+  const controller = new AbortController();
+  setTimeout(() => controller.abort(), ms);
+  return controller.signal;
+};
 const iconPaths = {
   window: 'M3 5h18v14H3zM3 9h18M7 7h.01M10 7h.01',
   shop: 'M4 10v10h16V10M3 10l2-6h14l2 6M3 10h18M9 20v-6h6v6',
@@ -110,12 +122,12 @@ document.querySelectorAll('[data-service]').forEach((a) =>
     $('#quote-form').hidden = false;
     $('#quote-success').hidden = true;
     $('#projectType').value = a.dataset.service;
-    $('#projectType').dispatchEvent(new Event('change'));
+    $('#projectType').dispatchEvent(new Event('change', { bubbles: true }));
   }),
 );
 const form = $('#quote-form');
 let submitting = false,
-  requestId = crypto.randomUUID();
+  requestId = newId();
 const fields = [
   'name',
   'business',
@@ -148,11 +160,48 @@ function showErrors(errors) {
   summary.textContent =
     errors.form || errors.features || 'Revisa los campos marcados para poder enviar tu solicitud.';
 }
+// Borrador en este navegador: lo escrito sobrevive a recargar o a volver desde el aviso de privacidad.
+const DRAFT_KEY = 'sitio-vecino:borrador',
+  DRAFT_DAYS = 7;
+function saveDraft() {
+  try {
+    const { consent, website, ...draft } = readForm();
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ savedAt: Date.now(), draft }));
+  } catch {
+    /* Almacenamiento no disponible; el formulario funciona igual. */
+  }
+}
+function clearDraft() {
+  try {
+    localStorage.removeItem(DRAFT_KEY);
+  } catch {
+    /* Sin almacenamiento no hay nada que borrar. */
+  }
+}
+function restoreDraft() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(DRAFT_KEY));
+    if (!saved) return;
+    if (Date.now() - saved.savedAt > DRAFT_DAYS * 86400000) return clearDraft();
+    for (const [key, value] of Object.entries(saved.draft)) {
+      if (key === 'features')
+        document
+          .querySelectorAll('[name=features]')
+          .forEach((el) => (el.checked = value.includes(el.value)));
+      else if (fields.includes(key)) $('#' + key).value = value;
+    }
+    $('#description').dispatchEvent(new Event('input'));
+  } catch {
+    clearDraft();
+  }
+}
 $('#description').addEventListener('input', () => {
   $('#char-count').textContent = `${$('#description').value.length} / 4000`;
 });
+restoreDraft();
 form.addEventListener('input', (e) => {
-  requestId = crypto.randomUUID();
+  requestId = newId();
+  saveDraft();
   const key = e.target.name;
   if (fields.includes(key)) {
     e.target.removeAttribute('aria-invalid');
@@ -160,7 +209,8 @@ form.addEventListener('input', (e) => {
   }
 });
 form.addEventListener('change', () => {
-  requestId = crypto.randomUUID();
+  requestId = newId();
+  saveDraft();
 });
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -184,7 +234,7 @@ form.addEventListener('submit', async (e) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...submittedData, requestId: submittedId }),
-      signal: AbortSignal.timeout(15000),
+      signal: timeoutSignal(15000),
     });
     const result = await response.json().catch(() => ({}));
     if (!response.ok) {
@@ -197,6 +247,9 @@ form.addEventListener('submit', async (e) => {
       throw new Error('No pude confirmar que tu solicitud se haya guardado. Intenta otra vez.');
     $('#success-whatsapp').href = whatsappUrl(quoteMessage(submittedData));
     $('#request-reference').textContent = `Tu referencia: ${result.id.slice(0, 8).toUpperCase()}`;
+    form.reset();
+    $('#char-count').textContent = '0 / 4000';
+    clearDraft();
     form.hidden = true;
     $('#quote-success').hidden = false;
     $('#quote-success').focus();
@@ -209,7 +262,7 @@ form.addEventListener('submit', async (e) => {
     status.hidden = false;
     status.classList.add('error-message');
     status.textContent =
-      error.name === 'TimeoutError'
+      error.name === 'TimeoutError' || error.name === 'AbortError'
         ? 'El envío tardó más de lo esperado. Tus datos siguen aquí; puedes intentar de nuevo sin duplicar la solicitud.'
         : error instanceof TypeError
           ? 'No pude conectar para confirmar el envío. Tus datos siguen aquí. Revisa tu conexión, intenta otra vez o continúa por WhatsApp.'
@@ -226,9 +279,10 @@ form.addEventListener('submit', async (e) => {
 });
 $('#new-request').addEventListener('click', () => {
   form.reset();
+  clearDraft();
   showErrors({});
   $('#char-count').textContent = '0 / 4000';
-  requestId = crypto.randomUUID();
+  requestId = newId();
   form.hidden = false;
   $('#quote-success').hidden = true;
   $('#name').focus();
@@ -236,7 +290,7 @@ $('#new-request').addEventListener('click', () => {
 const requestedProject = new URLSearchParams(location.search).get('proyecto');
 if (requestedProject) {
   const p = projects.find((p) => p.id === requestedProject);
-  if (p) {
+  if (p && !$('#description').value) {
     $('#projectType').value = 'local';
     $('#description').value =
       `Me interesa una página para mi negocio con un estilo similar al demo ${p.name}. `;
@@ -303,7 +357,7 @@ if (document.modelContext?.registerTool) {
             document
               .querySelectorAll('[name=features]')
               .forEach((el) => (el.checked = (input.features || []).includes(el.value)));
-            requestId = crypto.randomUUID();
+            requestId = newId();
             $('#cotizacion').scrollIntoView({ behavior: 'instant' });
             $('#projectType').focus({ preventScroll: true });
             return {
